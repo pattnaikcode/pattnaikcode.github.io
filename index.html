@@ -169,14 +169,19 @@ h2 { font-size: 26px; font-weight: 600; margin-bottom: 8px; }
 @media (max-width: 860px) { .small-projects { grid-template-columns: 1fr; } }
 .group-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 30px 0 12px; }
 
-/* Demo videos: load only when played (preload="none"), with a still preview */
-.videos { display: grid; gap: 14px; margin: 4px 0 14px; }
-.videos figure { margin: 0; min-width: 0; }
-.videos video { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 10px; border: 1px solid var(--line); background: #0f1720; }
-.videos figcaption { font-size: 13px; color: var(--muted); margin-top: 6px; }
-.videos figcaption b { color: var(--ink); font-weight: 600; }
-.vid-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-@media (max-width: 640px) { .vid-row { grid-template-columns: 1fr; } }
+/* Demos: one card per video, title and description in readable sizes. Videos load only when played. */
+.demos { display: grid; gap: 20px; }
+.demo { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; min-width: 0; }
+.demo video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #0f1720; }
+.demo .body { padding: 16px 20px 18px; }
+.demo .row1 { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.demo h3 { font-size: 21px; font-weight: 600; }
+.demo .len { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+.demo p { margin: 6px 0 0; font-size: 16px; color: var(--ink); }
+.demo .tag { display: inline-block; font-family: var(--font-mono); font-size: 12px; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); margin-bottom: 8px; }
+.demo-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.demo-pair h3 { font-size: 19px; }
+@media (max-width: 760px) { .demo-pair { grid-template-columns: 1fr; } }
 
 /* Case studies */
 .cases { display: grid; gap: 18px; }
@@ -228,6 +233,7 @@ footer { padding-block: 28px 40px; color: var(--muted); font-size: 13px; }
         <li><a href="#experience">Experience</a></li>
         <li><a href="#expertise">Expertise</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#demos">Demos</a></li>
         <li><a href="#cases">Case studies</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -458,17 +464,11 @@ footer { padding-block: 28px 40px; color: var(--muted); font-size: 13px; }
           <li>Built scoring and debriefs on detection, diagnosis and recovery, backed by 260+ passing automated tests.</li>
           <li>Prototyped an AI copilot for support. It uses keyword matching and predefined responses today; LLM and retrieval-based assistance are planned.</li>
         </ul>
-        <div class="videos" aria-label="Demo videos">
-          <figure><video controls preload="none" playsinline poster="https://pattnaikcode.github.io/media/opspilot-drill.jpg" aria-label="Drill session demo video"><source src="https://pattnaikcode.github.io/media/opspilot-drill.mp4" type="video/mp4"></video><figcaption><b>Drill session</b> · 1:35 · a payments incident from first alert to debrief</figcaption></figure>
-          <div class="vid-row">
-            <figure><video controls preload="none" playsinline poster="https://pattnaikcode.github.io/media/opspilot-designer.jpg" aria-label="Build a drill demo video"><source src="https://pattnaikcode.github.io/media/opspilot-designer.mp4" type="video/mp4"></video><figcaption><b>Build a drill</b> · 0:43 · design the system, write the use case, instructor view</figcaption></figure>
-            <figure><video controls preload="none" playsinline poster="https://pattnaikcode.github.io/media/opspilot-cc.jpg" aria-label="Command center demo video"><source src="https://pattnaikcode.github.io/media/opspilot-cc.mp4" type="video/mp4"></video><figcaption><b>Command center</b> · 0:53 · alerts to RCA, with an evidence-based copilot</figcaption></figure>
-          </div>
-        </div>
         <ul class="tags" aria-label="Technologies"><li>JavaScript</li><li>Node.js</li><li>YAML</li><li>Python</li><li>Playwright</li></ul>
         <p class="note">All systems and data are simulated.</p>
         <div class="links">
           <a href="https://pattnaikcode.github.io/Drill/" target="_blank" rel="noopener">Open the live demo</a>
+          <a href="#demos">Watch the demo videos</a>
         </div>
       </article>
 
@@ -500,6 +500,22 @@ footer { padding-block: 28px 40px; color: var(--muted); font-size: 13px; }
         <p>Built a Python (Tkinter) desktop tool that lets support engineers open and investigate compressed log files without extracting them first.</p>
         <ul class="tags" aria-label="Technologies"><li>Python</li><li>Tkinter</li></ul>
       </article>
+    </div>
+  </section>
+
+  <section id="demos">
+    <p class="eyebrow">Demos</p>
+    <h2>OpsPilot in action</h2>
+    <p class="lede">Short screen recordings of the live demo, with captions and no sound. All systems and data are simulated.</p>
+    <div class="demos">
+      <article class="demo"><video controls preload="none" playsinline poster="https://pattnaikcode.github.io/media/opspilot-drill.jpg" aria-label="Drill session video"><source src="https://pattnaikcode.github.io/media/opspilot-drill.mp4" type="video/mp4"></video>
+          <div class="body"><span class="tag">Start here</span><div class="row1"><h3>Drill session</h3><span class="len">1:35</span></div><p>An hour before the RTGS cut-off, payments stop reaching SWIFT. Follow one incident from the first alert through Grafana, Splunk and a Unix shell to an approved fix and the debrief.</p></div></article>
+      <div class="demo-pair">
+        <article class="demo"><video controls preload="none" playsinline poster="https://pattnaikcode.github.io/media/opspilot-designer.jpg" aria-label="Build a drill video"><source src="https://pattnaikcode.github.io/media/opspilot-designer.mp4" type="video/mp4"></video>
+          <div class="body"><div class="row1"><h3>Build a drill</h3><span class="len">0:43</span></div><p>Design the system, write the use case with its fault and right answer, and run it for a team from the instructor view.</p></div></article>
+        <article class="demo"><video controls preload="none" playsinline poster="https://pattnaikcode.github.io/media/opspilot-cc.jpg" aria-label="Command center video"><source src="https://pattnaikcode.github.io/media/opspilot-cc.mp4" type="video/mp4"></video>
+          <div class="body"><div class="row1"><h3>Command center</h3><span class="len">0:53</span></div><p>From alerts to RCA on one incident: correlation, an evidence-based copilot, an approved fix and an RCA draft.</p></div></article>
+      </div>
     </div>
   </section>
 
