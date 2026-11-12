@@ -169,6 +169,15 @@ h2 { font-size: 26px; font-weight: 600; margin-bottom: 8px; }
 @media (max-width: 860px) { .small-projects { grid-template-columns: 1fr; } }
 .group-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 30px 0 12px; }
 
+/* Demo videos: load only when played (preload="none"), with a still preview */
+.videos { display: grid; gap: 14px; margin: 4px 0 14px; }
+.videos figure { margin: 0; min-width: 0; }
+.videos video { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 10px; border: 1px solid var(--line); background: #0f1720; }
+.videos figcaption { font-size: 13px; color: var(--muted); margin-top: 6px; }
+.videos figcaption b { color: var(--ink); font-weight: 600; }
+.vid-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 640px) { .vid-row { grid-template-columns: 1fr; } }
+
 /* Case studies */
 .cases { display: grid; gap: 18px; }
 .case { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; }
@@ -449,6 +458,13 @@ footer { padding-block: 28px 40px; color: var(--muted); font-size: 13px; }
           <li>Built scoring and debriefs on detection, diagnosis and recovery, backed by 260+ passing automated tests.</li>
           <li>Prototyped an AI copilot for support. It uses keyword matching and predefined responses today; LLM and retrieval-based assistance are planned.</li>
         </ul>
+        <div class="videos" aria-label="Demo videos">
+          <figure><video controls preload="none" playsinline poster="https://pattnaikcode.github.io/media/opspilot-drill.jpg" aria-label="Drill session demo video"><source src="https://pattnaikcode.github.io/media/opspilot-drill.mp4" type="video/mp4"></video><figcaption><b>Drill session</b> · 1:35 · a payments incident from first alert to debrief</figcaption></figure>
+          <div class="vid-row">
+            <figure><video controls preload="none" playsinline poster="https://pattnaikcode.github.io/media/opspilot-designer.jpg" aria-label="Build a drill demo video"><source src="https://pattnaikcode.github.io/media/opspilot-designer.mp4" type="video/mp4"></video><figcaption><b>Build a drill</b> · 0:43 · design the system, write the use case, instructor view</figcaption></figure>
+            <figure><video controls preload="none" playsinline poster="https://pattnaikcode.github.io/media/opspilot-cc.jpg" aria-label="Command center demo video"><source src="https://pattnaikcode.github.io/media/opspilot-cc.mp4" type="video/mp4"></video><figcaption><b>Command center</b> · 0:53 · alerts to RCA, with an evidence-based copilot</figcaption></figure>
+          </div>
+        </div>
         <ul class="tags" aria-label="Technologies"><li>JavaScript</li><li>Node.js</li><li>YAML</li><li>Python</li><li>Playwright</li></ul>
         <p class="note">All systems and data are simulated.</p>
         <div class="links">
