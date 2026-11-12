@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Supriyo Pattnaik · Support &amp; Service Delivery Leader</title>
+<meta name="description" content="Support and service delivery leader with 13+ years in production support, major incident management, capital markets and SaaS operations. Bengaluru.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column with an operations-console motif: log lines, status pills, a dated career timeline and an incident lifecycle. */
+:root {
+  --bg: #f5f6f4;
+  --surface: #ffffff;
+  --ink: #18201f;
+  --muted: #5a6663;
+  --line: #d9dfdc;
+  --accent: #b5560f;
+  --accent-soft: #fbeee2;
+  --ok: #2f7a55;
+  --ok-soft: #e3f1e9;
+  --plan: #4a5a8c;
+  --plan-soft: #e7eaf5;
+  --console: #1d2523;
+  --console-fg: #d8e1dd;
+  --on-accent: #ffffff;
+  --font-display: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111615; --surface: #182020; --ink: #e6ece9; --muted: #9aa8a3; --line: #2b3533;
+    --accent: #f0974e; --accent-soft: #3a2616; --ok: #6cc596; --ok-soft: #173126;
+    --plan: #9fb0e6; --plan-soft: #1f2640; --console: #0b0f0e; --console-fg: #cfdad5; --on-accent: #1a120a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111615; --surface: #182020; --ink: #e6ece9; --muted: #9aa8a3; --line: #2b3533;
+  --accent: #f0974e; --accent-soft: #3a2616; --ok: #6cc596; --ok-soft: #173126;
+  --plan: #9fb0e6; --plan-soft: #1f2640; --console: #0b0f0e; --console-fg: #cfdad5; --on-accent: #1a120a;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 900px; margin: 0 auto; }
+
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; padding-block: 14px; flex-wrap: wrap; }
+.mark { font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--ink); text-decoration: none; }
+nav ul { display: flex; gap: 6px 18px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+nav a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; }
+nav a:hover { color: var(--ink); }
+
+section { padding-block: 56px; border-bottom: 1px solid var(--line); scroll-margin-top: 64px; }
+section:last-of-type { border-bottom: 0; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; letter-spacing: -0.015em; }
+h2 { font-size: 26px; font-weight: 600; margin-bottom: 8px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+.lede { color: var(--muted); max-width: 64ch; margin: 0 0 28px; }
+
+/* Hero */
+.hero { padding-block: 60px 52px; }
+.hero h1 { font-size: clamp(32px, 5.6vw, 50px); font-weight: 700; line-height: 1.08; max-width: 20ch; }
+.hero .intro { font-size: clamp(17px, 2.3vw, 19px); color: var(--muted); max-width: 60ch; margin: 18px 0 22px; line-height: 1.6; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0 0 26px; }
+.facts li { font-family: var(--font-mono); font-size: 12.5px; padding: 4px 10px; border-radius: 6px; background: var(--surface); border: 1px solid var(--line); }
+.facts strong { color: var(--accent); font-weight: 500; }
+.console { background: var(--console); color: var(--console-fg); border-radius: 10px; font-family: var(--font-mono); font-size: 13px; line-height: 1.75; padding: 16px 18px; overflow-x: auto; max-width: 100%; }
+.console .line { white-space: pre; }
+.console .t { opacity: 0.55; }
+.console .warn { color: #f0b36a; }
+.console .info { color: #8fc7e8; }
+.console .ok { color: #7fd3a4; }
+.console-cap { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+.btn { display: inline-flex; align-items: center; padding: 10px 16px; border-radius: 8px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+
+/* About */
+.about-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 32px; }
+.about-grid p { margin: 0 0 14px; max-width: 62ch; }
+.about-grid aside { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; align-self: start; min-width: 0; }
+.about-grid aside h3 { font-size: 15px; margin-bottom: 10px; }
+.about-grid aside ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 15px; }
+.about-grid aside li { margin-bottom: 6px; }
+@media (max-width: 720px) { .about-grid { grid-template-columns: 1fr; } }
+
+/* Experience timeline */
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.job { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding-block: 24px; border-top: 1px solid var(--line); }
+.job:first-child { border-top: 0; padding-top: 0; }
+.when { font-family: var(--font-mono); font-size: 13px; color: var(--muted); padding-top: 4px; font-variant-numeric: tabular-nums; }
+.when .place { display: block; margin-top: 4px; }
+.job h3 { font-size: 20px; font-weight: 600; }
+.job .org { font-weight: 600; color: var(--accent); margin: 2px 0 10px; }
+.job p { margin: 0 0 10px; color: var(--muted); }
+.job ul { margin: 0 0 10px; padding-left: 20px; }
+.job li { margin-bottom: 5px; }
+.job li::marker { color: var(--muted); }
+.sub { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 14px 0 6px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.chips li { font-size: 13px; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--ink); margin: 0; }
+@media (max-width: 640px) { .job { grid-template-columns: 1fr; gap: 6px; } }
+
+/* Lifecycle rail: the order is the incident lifecycle */
+.rail { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; list-style: none; padding: 0; margin: 0 0 32px; counter-reset: step; }
+.rail li { position: relative; padding-top: 34px; min-width: 0; }
+.rail li::before { counter-increment: step; content: counter(step); position: absolute; top: 0; left: 0; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-mono); font-size: 12px; background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+.rail li::after { content: ""; position: absolute; top: 13px; left: 32px; right: -6px; height: 1px; background: var(--line); }
+.rail li:last-child::after { display: none; }
+.rail h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.rail p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+@media (max-width: 760px) { .rail { grid-template-columns: 1fr; gap: 16px; } .rail li { padding-top: 0; padding-left: 40px; } .rail li::after { display: none; } }
+
+.expertise { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.expertise article { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; min-width: 0; }
+.expertise h3 { font-size: 17px; margin-bottom: 8px; }
+.expertise ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 15px; }
+.expertise li { margin-bottom: 4px; }
+@media (max-width: 640px) { .expertise { grid-template-columns: 1fr; } }
+
+/* Skills by level of experience */
+.skill-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 36px; }
+.skill-groups h3 { font-size: 16px; margin-bottom: 4px; }
+.skill-groups .hint { font-size: 13px; color: var(--muted); margin: 0 0 10px; }
+.skill-groups ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.skill-groups li { padding-left: 16px; position: relative; font-size: 15px; }
+.skill-groups li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); }
+.skill-groups .built li::before { background: var(--ok); }
+.skill-groups .exploring li::before { background: var(--plan); }
+@media (max-width: 760px) { .skill-groups { grid-template-columns: 1fr; } }
+
+/* Projects */
+.projects { display: grid; gap: 18px; }
+.project { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; min-width: 0; }
+.project .head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 2px; }
+.project h3 { font-size: 20px; font-weight: 600; }
+.kind { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin: 0 0 12px; }
+.pill { font-family: var(--font-mono); font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+.pill.live { background: var(--ok-soft); color: var(--ok); }
+.pill.progress { background: var(--accent-soft); color: var(--accent); }
+.pill.design { background: var(--plan-soft); color: var(--plan); }
+.pill.tool { background: var(--bg); color: var(--muted); border: 1px solid var(--line); }
+.project p { margin: 0 0 12px; }
+.project ul { margin: 0 0 12px; padding-left: 20px; }
+.project li { margin-bottom: 5px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; padding: 0 !important; list-style: none; }
+.tags li { font-family: var(--font-mono); font-size: 12px; padding: 3px 9px; border: 1px solid var(--line); border-radius: 6px; color: var(--muted); margin: 0; }
+.note { font-size: 13px; color: var(--muted); }
+.project .links { display: flex; gap: 8px 18px; flex-wrap: wrap; font-weight: 600; font-size: 15px; }
+.mono { font-family: var(--font-mono); font-size: 0.92em; }
+.small-projects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.small-projects .project { padding: 18px; }
+.small-projects h3 { font-size: 17px; }
+@media (max-width: 860px) { .small-projects { grid-template-columns: 1fr; } }
+.group-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 30px 0 12px; }
+
+/* Case studies */
+.cases { display: grid; gap: 18px; }
+.case { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; }
+.case .metric { font-family: var(--font-display); font-size: 34px; font-weight: 700; color: var(--accent); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.case .metric.small { font-size: 24px; }
+.case .metric-label { font-size: 13px; color: var(--muted); margin-top: 6px; }
+.case h3 { font-size: 19px; margin-bottom: 8px; }
+.case dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 16px; margin: 0; }
+.case dt { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); padding-top: 3px; }
+.case dd { margin: 0; }
+.case dd ul { margin: 0; padding-left: 18px; }
+@media (max-width: 640px) { .case { grid-template-columns: 1fr; gap: 12px; } .case dl { grid-template-columns: 1fr; } .case dt { padding-top: 6px; } }
+
+/* Certifications */
+.cert { display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; }
+.cert .badge { font-family: var(--font-mono); font-size: 13px; padding: 12px 14px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); font-weight: 500; text-align: center; min-width: 96px; }
+.cert .badge strong { display: block; font-family: var(--font-display); font-size: 22px; }
+.cert h3 { font-size: 19px; }
+.cert p { margin: 4px 0 10px; color: var(--muted); }
+.cert > div:last-child { flex: 1 1 260px; min-width: 0; }
+
+/* Contact */
+.contact dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 10px 20px; margin: 0; }
+.contact dt { font-family: var(--font-mono); font-size: 13px; color: var(--muted); padding-top: 2px; }
+.contact dd { margin: 0; overflow-wrap: anywhere; }
+.contact .pending { color: var(--muted); font-style: italic; }
+.contact .emails { display: grid; gap: 8px; }
+.contact .addr { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; user-select: all; }
+.copy { font: 500 12px var(--font-mono); padding: 3px 10px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; user-select: none; }
+.copy:hover { border-color: var(--accent); }
+.copy:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+footer { padding-block: 28px 40px; color: var(--muted); font-size: 13px; }
+</style>
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Supriyo Pattnaik · Support &amp; Service Delivery Leader">
+<meta property="og:description" content="Support and service delivery leader with 13+ years in production support, major incident management, capital markets and SaaS operations. Bengaluru.">
+<meta property="og:url" content="https://pattnaikcode.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b5560f'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='28' fill='white' text-anchor='middle'%3ESP%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top">Supriyo Pattnaik</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#cases">Case studies</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <section class="hero">
+    <p class="eyebrow">Product support leadership · SaaS operations · Technical escalations</p>
+    <h1>I keep business-critical platforms running, and build tools that make support teams faster.</h1>
+    <p class="intro">I'm a product support and service delivery leader with 13+ years across SaaS, financial services, capital markets and business-critical production systems. I lead global 24×7 support, develop L2/L3 engineers, own major incidents and escalations, and build practical tools that make operations work better.</p>
+    <ul class="facts" aria-label="At a glance">
+      <li><strong>13+</strong> years in IT, since July 2013</li>
+      <li>Teams of up to <strong>17</strong></li>
+      <li><strong>24×7</strong> global support · APAC · EMEA · AMER</li>
+      <li><strong>ITIL 4</strong> Foundation</li>
+      <li>Bengaluru, India</li>
+    </ul>
+    <div class="console" role="img" aria-label="Illustrative incident log: an alert, an incident declared, a diagnosis, a fix and a review.">
+      <div class="line"><span class="t">09:14:02</span> <span class="warn">WARN </span> order-gateway    latency p95 2.4s (normal 180ms)</div>
+      <div class="line"><span class="t">09:14:40</span> <span class="info">INFO </span> incident         P1 declared · roles assigned · first stakeholder update</div>
+      <div class="line"><span class="t">09:21:15</span> <span class="info">INFO </span> diagnosis        consumer lag traced to config change in release</div>
+      <div class="line"><span class="t">09:24:03</span> <span class="ok">OK   </span> mitigation       config rolled back · service restored</div>
+      <div class="line"><span class="t">10:30:00</span> <span class="ok">OK   </span> review           root cause analysis · preventive action tracked</div>
+    </div>
+    <p class="console-cap">An illustrative incident timeline, the kind of work I've led for over a decade.</p>
+    <div class="actions">
+      <a class="btn primary" href="#experience">View my experience</a>
+      <a class="btn" href="#projects">See my projects</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <p class="eyebrow">About</p>
+    <h2>Operations leadership with an engineer's curiosity</h2>
+    <div class="about-grid">
+      <div>
+        <p>My career has been about keeping business-critical systems running: trading platforms, exchange systems and enterprise SaaS applications where downtime has a direct cost to clients and the business.</p>
+        <p>I've led global 24×7 support operations, managed P1 and P2 incidents and escalations, and strengthened incident, problem and change management. I combine hands-on troubleshooting with team leadership, stakeholder communication, service governance and process improvement.</p>
+        <p>Alongside that work I build practical tools: log analysers, alert-reporting automation and an incident drill simulator. I'm particularly interested in applying automation, observability and AI to make enterprise operations more reliable and efficient.</p>
+      </div>
+      <aside>
+        <h3>Industries</h3>
+        <ul>
+          <li>Financial technology</li>
+          <li>Capital markets</li>
+          <li>Electronic trading and exchange technology</li>
+          <li>Banking and financial services</li>
+          <li>Enterprise SaaS</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section id="experience">
+    <p class="eyebrow">Experience</p>
+    <h2>Where I've worked</h2>
+    <p class="lede">In IT since July 2013, supporting financial-services and trading systems across India, Singapore and Switzerland.</p>
+    <ol class="timeline">
+      <li class="job">
+        <div class="when">Mar 2025 – Apr 2026<span class="place">Bengaluru</span></div>
+        <div>
+          <h3>Senior Support Manager</h3>
+          <p class="org">Genesis Global · FinTech SaaS platform provider</p>
+          <ul>
+            <li>Led global application support and systems operations for SaaS platforms, including AWS-based environments, with a distributed team of about 17 providing 24×7 coverage.</li>
+            <li>Owned major incidents and complex escalations end to end: investigation, stakeholder updates, service restoration, root cause analysis and preventive actions.</li>
+            <li>Introduced proactive alert-analysis automation, using lightweight daemons and agents to capture application and system metrics for earlier detection.</li>
+            <li>Managed priorities, shift coverage and workforce allocation; maintained SLA and KPI reporting with follow-through on recurring issues.</li>
+            <li>Partnered with engineering, product, vendors and stakeholders on investigations and service improvements.</li>
+            <li>Supported go-live and release readiness through monitoring and ITSM setup, support handover and operational controls, including the SMBC Credit Insurance Application go-live.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="job">
+        <div class="when">Sep 2019 – Feb 2025<span class="place">Bengaluru</span></div>
+        <div>
+          <h3>Application Support Lead</h3>
+          <p class="org">IG Group / IG Infotech · Electronic trading and exchange technology</p>
+          <ul>
+            <li>Led production support for business-critical trading platforms, investigating order flow, trade processing, data and downstream issues.</li>
+            <li>Built and led L2/L3 support teams: hiring, coaching, rota planning, on-call coverage, escalation practices and capacity allocation.</li>
+            <li>Coordinated broker and market-maker onboarding, including FIX connectivity, testing, configuration, monitoring and production readiness.</li>
+            <li>Supported exchange-surveillance operations, including deployments, releases and compliance controls, using Grafana dashboards and Splunk logs to investigate issues and improve incident visibility.</li>
+            <li>Automated repetitive operational workflows with shell scripts and scheduled jobs.</li>
+            <li>Led root cause analysis and proactive problem management, and ran controlled failure and resilience drills to validate detection and recovery.</li>
+          </ul>
+          <p class="sub">Platforms supported</p>
+          <ul class="chips">
+            <li>Spectrum Markets (MTF)</li>
+            <li>Nadex (US derivatives exchange)</li>
+            <li>Scila surveillance</li>
+          </ul>
+        </div>
+      </li>
+      <li class="job">
+        <div class="when">Apr 2015 – Sep 2019<span class="place">Singapore · Switzerland · Pune</span></div>
+        <div>
+          <h3>Application Support Lead</h3>
+          <p class="org">Infosys · Assignment with UBS</p>
+          <ul>
+            <li>Led onshore and offshore teams providing 24×7 production support for financial applications covering legal entity and issuer reference data, and confirmation and settlement instructions.</li>
+            <li>Led a vendor-to-vendor support transition: knowledge transfer, shadow and reverse-shadow, SOPs, KEDB/KMDB, production readiness, hypercare and steady-state handover.</li>
+            <li>Investigated recurring reference-data incidents and followed through on corrective actions and stability improvements.</li>
+            <li>Managed change and pre-release reviews, improved monitoring and alerting, and coached engineers on knowledge reuse.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="job">
+        <div class="when">Jul 2013 – Mar 2015<span class="place">India</span></div>
+        <div>
+          <h3>Application Support Analyst</h3>
+          <p class="org">Infosys · Production support for Citizens Bank</p>
+          <ul>
+            <li>Monitored and maintained EDI systems, diagnosing file-transmission and application issues to protect business continuity.</li>
+            <li>Automated and scheduled operational tasks, reports and data transfers with Cron.</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="expertise">
+    <p class="eyebrow">Expertise</p>
+    <h2>How I run incidents and operations</h2>
+    <p class="lede">The same lifecycle runs through my support leadership and through the tools I build.</p>
+    <ol class="rail">
+      <li><h3>Detect</h3><p>Monitoring, alerts and business signals catch problems before clients do.</p></li>
+      <li><h3>Diagnose</h3><p>From symptoms to cause across logs, FIX messages, queues and databases.</p></li>
+      <li><h3>Restore</h3><p>Service first, with the safest change, then the root cause.</p></li>
+      <li><h3>Communicate</h3><p>Clear impact, actions and next update time for every audience.</p></li>
+      <li><h3>Prevent</h3><p>RCA, corrective actions, runbooks and controls that stop repeats.</p></li>
+    </ol>
+    <div class="expertise">
+      <article>
+        <h3>Leadership and service delivery</h3>
+        <ul>
+          <li>Global teams of up to 17, 24×7 shift coverage</li>
+          <li>Hiring, coaching and developing L2/L3 engineers</li>
+          <li>SLA and KPI management, service governance</li>
+          <li>Operational reporting and service improvement</li>
+          <li>Resource planning and team development</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Incident and problem management</h3>
+        <ul>
+          <li>P1/P2 incidents and critical outages</li>
+          <li>Trading platform disruptions, integration failures, Kafka issues</li>
+          <li>Major incident communication</li>
+          <li>Root cause analysis and preventive action tracking</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Trading and FinTech systems</h3>
+        <ul>
+          <li>MTF and exchange environments</li>
+          <li>FIX protocol and message analysis</li>
+          <li>Order processing and matching-engine workflows</li>
+          <li>Broker and market-maker onboarding</li>
+          <li>Settlement, reference data, LEI, surveillance and regulatory reporting</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Operational governance</h3>
+        <ul>
+          <li>Incident, problem and change management</li>
+          <li>Runbooks, SOPs and knowledge management</li>
+          <li>Release readiness, service transition and hypercare</li>
+          <li>Resilience drills, capacity and disaster-recovery planning</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="skill-groups">
+      <div>
+        <h3>Professional experience</h3>
+        <p class="hint">Used in my roles</p>
+        <ul>
+          <li>Linux and Unix, shell scripting, Cron</li>
+          <li>Python, SQL, Core Java</li>
+          <li>Oracle, PostgreSQL, Apache Kafka</li>
+          <li>Grafana, Loki, Prometheus, Splunk, AppDynamics, Datadog</li>
+          <li>ServiceNow, Jira, Zendesk</li>
+          <li>FIX protocol</li>
+          <li>AWS-based SaaS environments</li>
+        </ul>
+      </div>
+      <div class="built">
+        <h3>Built in my projects</h3>
+        <p class="hint">Hands-on in independent work</p>
+        <ul>
+          <li>Python automation (alert reports, log tools, Tkinter)</li>
+          <li>Shell-based log analytics</li>
+          <li>JavaScript and Node.js simulation</li>
+          <li>Automated and browser testing</li>
+          <li>Error-pattern normalisation and grouping</li>
+        </ul>
+      </div>
+      <div class="exploring">
+        <h3>Exploring now</h3>
+        <p class="hint">Learning and prototyping</p>
+        <ul>
+          <li>LLMs and AI-assisted troubleshooting</li>
+          <li>Retrieval-augmented generation for operations knowledge</li>
+          <li>Agentic AI for incident management</li>
+          <li>Observability and alerting automation</li>
+          <li>Cloud-native infrastructure</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <p class="eyebrow">Projects</p>
+    <h2>Things I've built</h2>
+    <p class="lede">Independent projects. Each shows its real status, and anything simulated is labelled as such.</p>
+    <div class="projects">
+      <article class="project">
+        <div class="head"><h3>OpsPilot</h3><span class="pill live">Live demo</span></div>
+        <p class="kind">Independent project · Incident simulation and operations training platform · 2026</p>
+        <p>A platform for practising production incidents: model a system, inject controlled faults, and troubleshoot them in a sandbox. Scenarios cover payments messaging, exchange trading, e-commerce and fraud monitoring.</p>
+        <ul>
+          <li>Built a system designer and simulator where teams model a system, inject controlled faults and watch how they spread.</li>
+          <li>Built timed failure scenarios with alerts, symptoms and a business cut-off, packaged as reusable scenario packs.</li>
+          <li>Built a Linux lab with log archives, file inspection, network checks and command history.</li>
+          <li>Built scoring and debriefs on detection, diagnosis and recovery, backed by 260+ passing automated tests.</li>
+          <li>Prototyped an AI copilot for support. It uses keyword matching and predefined responses today; LLM and retrieval-based assistance are planned.</li>
+        </ul>
+        <ul class="tags" aria-label="Technologies"><li>JavaScript</li><li>Node.js</li><li>YAML</li><li>Python</li><li>Playwright</li></ul>
+        <p class="note">All systems and data are simulated.</p>
+        <div class="links">
+          <a href="https://pattnaikcode.github.io/Drill/" target="_blank" rel="noopener">Open the live demo</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="head"><h3>Incident Lab</h3><span class="pill design">In design</span></div>
+        <p class="kind">Next step for OpsPilot · Enterprise incident-response training</p>
+        <p>Hands-on incident training for support and SRE teams: several people work one incident together in roles, keep simulated stakeholders updated, and receive a report on how they handled it. Labs run on real open-source systems with injected faults, or on a simulation built from a company's own monitoring data.</p>
+        <p class="note">Research and architecture complete; build not started.</p>
+      </article>
+    </div>
+
+    <p class="group-label">Automation tools</p>
+    <div class="small-projects">
+      <article class="project">
+        <div class="head"><h3>Grafana Alert Analyzer</h3></div>
+        <p class="kind">Python automation</p>
+        <p>Built a Python tool that reads Grafana alert emails from Outlook, groups related alerts from CSV and Excel data, and turns recurring patterns into structured operational reports.</p>
+        <ul class="tags" aria-label="Technologies"><li>Python</li><li>Outlook</li><li>CSV</li><li>Excel</li></ul>
+      </article>
+      <article class="project">
+        <div class="head"><h3>Delta Error Analyzer</h3></div>
+        <p class="kind">Shell scripting · Log analytics</p>
+        <p>Built a shell tool that scans compressed <span class="mono">.log.gz</span> files, normalises variable values (<span class="mono">&lt;NUM&gt;</span>, <span class="mono">&lt;PATH&gt;</span>, <span class="mono">&lt;DATE&gt;</span>) and groups recurring failures, so the most frequent errors surface first.</p>
+        <ul class="tags" aria-label="Technologies"><li>Shell</li><li>Log analysis</li></ul>
+      </article>
+      <article class="project">
+        <div class="head"><h3>Zip Log Viewer</h3></div>
+        <p class="kind">Python desktop tool</p>
+        <p>Built a Python (Tkinter) desktop tool that lets support engineers open and investigate compressed log files without extracting them first.</p>
+        <ul class="tags" aria-label="Technologies"><li>Python</li><li>Tkinter</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="cases">
+    <p class="eyebrow">Case studies</p>
+    <h2>Problems I've solved</h2>
+    <p class="lede">Examples of incident ownership, process improvement, service transition and team leadership.</p>
+    <div class="cases">
+      <article class="case">
+        <div>
+          <div class="metric">~80%</div>
+          <div class="metric-label">fewer ad hoc requests: about 100 a week down to 20</div>
+        </div>
+        <div>
+          <h3>Turning repeat requests into scheduled reports</h3>
+          <dl>
+            <dt>Context</dt><dd>During a support transition, many incoming tickets turned out to be the same trade-related requests, raised again and again.</dd>
+            <dt>Approach</dt><dd>Analysed ticket patterns, categorised the recurring requests, and converted the suitable ones into scheduled reports.</dd>
+            <dt>Result</dt><dd>Weekly ad hoc requests fell from roughly 100 to 20, freeing the team for real incidents.</dd>
+          </dl>
+        </div>
+      </article>
+      <article class="case">
+        <div>
+          <div class="metric small">Vendor transition</div>
+          <div class="metric-label">support transition for a global bank's reference-data applications</div>
+        </div>
+        <div>
+          <h3>Taking over production support without losing stability</h3>
+          <dl>
+            <dt>Context</dt><dd>Support for business-critical reference-data and settlement applications moved from one vendor to another.</dd>
+            <dt>Approach</dt><dd>Ran knowledge transfer, shadow and reverse-shadow phases, rebuilt SOPs and the known-error and knowledge databases, then led production readiness and hypercare through to steady state.</dd>
+            <dt>Themes</dt><dd>Service transition, knowledge management and operational readiness.</dd>
+          </dl>
+        </div>
+      </article>
+      <article class="case">
+        <div>
+          <div class="metric">24×7</div>
+          <div class="metric-label">global SaaS support, team of about 17</div>
+        </div>
+        <div>
+          <h3>Running global support operations</h3>
+          <dl>
+            <dt>Context</dt><dd>Enterprise SaaS clients needed consistent round-the-clock support across regions.</dd>
+            <dt>Approach</dt><dd>Coordinated shifts across APAC, EMEA and AMER, strengthened handovers, and oversaw incident and escalation processes.</dd>
+            <dt>Themes</dt><dd>Leadership, global operations, service management and team coordination.</dd>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <p class="eyebrow">Education and certification</p>
+    <h2>Credentials</h2>
+    <div class="cert">
+      <div class="badge"><strong>ITIL 4</strong>Foundation</div>
+      <div>
+        <h3>ITIL 4 Foundation</h3>
+        <p>Completed 1 April 2026</p>
+        <ul class="tags" aria-label="Topics covered">
+          <li>Service value system</li><li>Incident management</li><li>Problem management</li><li>Change enablement</li><li>Continual improvement</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cert" style="margin-top:16px">
+      <div class="badge"><strong>B.Tech</strong>2012</div>
+      <div>
+        <h3>Bachelor of Technology, Mechanical Engineering</h3>
+        <p>College of Engineering Bhubaneswar, 2012</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <p class="eyebrow">Contact</p>
+    <h2>Let's talk</h2>
+    <p class="lede">Open to roles in product support and service delivery leadership, SaaS and technology operations, and AI-driven support.</p>
+    <dl>
+      <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/supriyo-pattnaik" target="_blank" rel="noopener">linkedin.com/in/supriyo-pattnaik</a></dd>
+      <dt>Email</dt>
+      <dd class="emails">
+        <span class="addr"><span class="mono">pattnaiksupriyo@gmail.com</span> <button type="button" class="copy" data-copy="pattnaiksupriyo@gmail.com">Copy</button></span>
+        <span class="addr"><span class="mono">supriyopattnaik@gmail.com</span> <button type="button" class="copy" data-copy="supriyopattnaik@gmail.com">Copy</button></span>
+      </dd>
+      <dt>GitHub</dt><dd><a href="https://github.com/pattnaikcode" target="_blank" rel="noopener">github.com/pattnaikcode</a></dd>
+      <dt>Location</dt><dd>Bengaluru, India</dd>
+    </dl>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Supriyo Pattnaik</div>
+</footer>
+<script>
+// Copy an email address; if the clipboard is refused, select the text so it can be copied by hand.
+document.querySelectorAll('.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var text = btn.getAttribute('data-copy');
+    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1500); };
+    var fallback = function () {
+      var range = document.createRange();
+      range.selectNodeContents(btn.previousElementSibling);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      btn.textContent = 'Selected';
+      setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback);
+      else fallback();
+    } catch (e) { fallback(); }
+  });
+});
+</script>
+</body>
+</html>
